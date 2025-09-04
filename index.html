@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Joyeux Anniversaire Judith 🎉</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(-45deg, #ffcce6, #ffb3e6, #cc99ff, #cce6ff);
+      background-size: 400% 400%;
+      animation: gradientBG 15s ease infinite;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+      color: #5a3d5c;
+    }
+
+    @keyframes gradientBG {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    .floating-hearts {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      top: 0;
+      left: 0;
+      z-index: 1;
+    }
+
+    .heart {
+      position: absolute;
+      font-size: 22px;
+      color: #ff4d88;
+      opacity: 0.7;
+      animation: float 6s ease-in-out infinite;
+    }
+
+    @keyframes float {
+      0% {
+        transform: translateY(100vh) rotate(0deg);
+        opacity: 0;
+      }
+      50% {
+        opacity: 0.7;
+      }
+      100% {
+        transform: translateY(-100px) rotate(360deg);
+        opacity: 0;
+      }
+    }
+
+    .container {
+      text-align: center;
+      background: rgba(255, 255, 255, 0.95);
+      padding: 2.5rem;
+      border-radius: 20px;
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+      max-width: 90%;
+      width: 500px;
+      position: relative;
+      z-index: 10;
+      transform: scale(0);
+      transition: transform 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      overflow: hidden;
+    }
+
+    .container::before {
+      content: '';
+      position: absolute;
+      top: -10px;
+      left: -10px;
+      right: -10px;
+      bottom: -10px;
+      z-index: -1;
+      background: linear-gradient(45deg, #ff66b3, #cc66ff, #66b3ff, #ff66b3);
+      background-size: 400% 400%;
+      animation: gradientBG 8s ease infinite;
+      border-radius: 25px;
+      opacity: 0.4;
+      filter: blur(15px);
+    }
+
+    h1 {
+      font-size: 2.8rem;
+      color: #d64b7f;
+      margin-bottom: 1.5rem;
+      white-space: nowrap;
+      overflow: hidden;
+      border-right: 3px solid #d64b7f;
+      width: 0;
+      animation: typing 3s steps(30, end) forwards, blink 0.7s step-end infinite;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    @keyframes typing {
+      from { width: 0; }
+      to { width: 100%; }
+    }
+
+    @keyframes blink {
+      from, to { border-color: transparent; }
+      50% { border-color: #d64b7f; }
+    }
+
+    #introText {
+      opacity: 0;
+      transition: opacity 2s ease;
+      font-size: 1.2rem;
+      margin-bottom: 2rem;
+      line-height: 1.6;
+      color: #7a5c7d;
+    }
+
+    .btn-container {
+      position: relative;
+      margin: 2rem 0;
+    }
+
+    #surpriseBtn {
+      background: linear-gradient(45deg, #d64b7f, #ff6b9d);
+      color: white;
+      border: none;
+      padding: 15px 40px;
+      border-radius: 50px;
+      font-size: 1.3rem;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 0 8px 25px rgba(214, 75, 127, 0.5);
+      position: relative;
+      overflow: hidden;
+      z-index: 1;
+      animation: pulse 2s infinite, wiggle 3s infinite;
+    }
+
+    #surpriseBtn:hover {
+      transform: translateY(-5px) scale(1.05);
+      box-shadow: 0 12px 30px rgba(214, 75, 127, 0.6);
+      animation: none;
+    }
+
+    #surpriseBtn::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+      transition: 0.5s;
+      z-index: -1;
+    }
+
+    #surpriseBtn:hover::before {
+      left: 100%;
+    }
+
+    @keyframes pulse {
+      0% {
+        box-shadow: 0 0 0 0 rgba(214, 75, 127, 0.7);
+      }
+      70% {
+        box-shadow: 0 0 0 15px rgba(214, 75, 127, 0);
+      }
+      100% {
+        box-shadow: 0 0 0 0 rgba(214, 75, 127, 0);
+      }
+    }
+
+    @keyframes wiggle {
+      0%, 7% {
+        transform: rotateZ(0);
+      }
+      15% {
+        transform: rotateZ(-5deg);
+      }
+      20% {
+        transform: rotateZ(4deg);
+      }
+      25% {
+        transform: rotateZ(-4deg);
+      }
+      30% {
+        transform: rotateZ(3deg);
+      }
+      35% {
+        transform: rotateZ(-2deg);
+      }
+      40%, 100% {
+        transform: rotateZ(0);
+      }
+    }
+
+    .arrow-hint {
+      position: absolute;
+      top: -40px;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 30px;
+      color: #d64b7f;
+      animation: bounce 2s infinite;
+    }
+
+    @keyframes bounce {
+      0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0) translateX(-50%);
+      }
+      40% {
+        transform: translateY(-20px) translateX(-50%);
+      }
+      60% {
+        transform: translateY(-10px) translateX(-50%);
+      }
+    }
+
+    .hidden-message {
+      display: none;
+      margin-top: 2rem;
+      padding: 1.5rem;
+      background: rgba(249, 230, 239, 0.8);
+      border-radius: 15px;
+      animation: fadeIn 1.5s, glow 2s infinite alternate;
+      border: 2px solid transparent;
+    }
+
+    @keyframes glow {
+      from {
+        box-shadow: 0 0 10px -10px #d64b7f;
+        border-color: #f9c6d9;
+      }
+      to {
+        box-shadow: 0 0 20px 5px #d64b7f;
+        border-color: #d64b7f;
+      }
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .hidden-message h2 {
+      color: #d64b7f;
+      margin-bottom: 1rem;
+      font-size: 1.8rem;
+    }
+
+    .hidden-message p {
+      font-size: 1.1rem;
+      line-height: 1.6;
+      color: #7a5c7d;
+    }
+
+    .flowers {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      pointer-events: none;
+      z-index: 2;
+    }
+
+    .flower {
+      position: absolute;
+      font-size: 24px;
+      opacity: 0;
+      animation: flowerFloat 10s linear infinite;
+    }
+
+    @keyframes flowerFloat {
+      0% {
+        transform: translateY(100vh) rotate(0deg);
+        opacity: 0;
+      }
+      10% {
+        opacity: 0.7;
+      }
+      90% {
+        opacity: 0.7;
+      }
+      100% {
+        transform: translateY(-100px) rotate(360deg);
+        opacity: 0;
+      }
+    }
+
+    .romantic-element {
+      position: absolute;
+      font-size: 20px;
+      color: #ff66b3;
+      opacity: 0.6;
+      z-index: 1;
+    }
+
+    @media (max-width: 600px) {
+      h1 {
+        font-size: 2rem;
+      }
+      #introText {
+        font-size: 1rem;
+      }
+      #surpriseBtn {
+        padding: 12px 30px;
+        font-size: 1.1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="floating-hearts" id="heartsContainer"></div>
+  <div class="flowers" id="flowersContainer"></div>
+  
+  <div class="container">
+    <h1>HBD Judith 🎉</h1>
+    <p id="introText">Aujourd'hui, on célèbre plus qu'une date : on célèbre ta lumière, ta force, et ton impact dans nos vies.</p>
+    
+    <div class="btn-container">
+      <div class="arrow-hint"><i class="fas fa-hand-point-down"></i></div>
+      <button id="surpriseBtn">
+        <i class="fas fa-gift"></i> Découvre ton message
+      </button>
+    </div>
+    
+    <div id="hiddenMessage" class="hidden-message">
+      <h2>Judith </h2>
+   <p>Tu incarnes une élégance tranquille, une force douce, et une grandeur qui ne réclame jamais l’attention — mais qui la mérite pleinement.<br>
+        Merci pour ta présence fidèle, ton esprit affûté, et cette capacité unique à rendre chaque chose plus juste, plus belle, plus vraie.<br>
+        Ce site est un hommage discret, mais mon respect pour toi est immense et durable. 👑</p>
+
+    </div>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const button = document.getElementById('surpriseBtn');
+      const message = document.getElementById('hiddenMessage');
+      const container = document.querySelector('.container');
+      const heartsContainer = document.getElementById('heartsContainer');
+      const flowersContainer = document.getElementById('flowersContainer');
+
+      // Créer des cœurs flottants
+      function createHearts() {
+        for (let i = 0; i < 25; i++) {
+          const heart = document.createElement('div');
+          heart.className = 'heart';
+          heart.innerHTML = '❤';
+          heart.style.left = Math.random() * 100 + 'vw';
+          heart.style.animationDelay = Math.random() * 5 + 's';
+          heart.style.fontSize = (Math.random() * 15 + 15) + 'px';
+          heartsContainer.appendChild(heart);
+        }
+      }
+
+      // Créer des fleurs flottantes
+      function createFlowers() {
+        const flowers = ['🌸', '🌹', '🌺', '🌷', '💐', '🥀', '🌻', '🌼'];
+        for (let i = 0; i < 15; i++) {
+          const flower = document.createElement('div');
+          flower.className = 'flower';
+          flower.innerHTML = flowers[Math.floor(Math.random() * flowers.length)];
+          flower.style.left = Math.random() * 100 + 'vw';
+          flower.style.animationDelay = Math.random() * 10 + 's';
+          flower.style.fontSize = (Math.random() * 15 + 20) + 'px';
+          flowersContainer.appendChild(flower);
+        }
+      }
+
+      // Animation d'entrée
+      setTimeout(() => {
+        container.style.transform = 'scale(1)';
+      }, 200);
+
+      // Affichage du texte après animation
+      setTimeout(() => {
+        document.getElementById('introText').style.opacity = '1';
+      }, 3500);
+
+      // Créer les éléments flottants
+      createHearts();
+      createFlowers();
+
+      // Confettis améliorés
+      function createConfetti() {
+        const colors = ['#ff4d88', '#4dffea', '#ffcc00', '#7bff4d', '#4d7bff', '#ff66b3', '#cc66ff'];
+        const symbols = ['❤', '💖', '💕', '🎉', '🎊', '✨', '🌟', '🎁', '🎂'];
+        
+        for (let i = 0; i < 100; i++) {
+          const confetti = document.createElement('div');
+          confetti.className = 'confetti';
+          confetti.style.left = Math.random() * 100 + 'vw';
+          confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+          confetti.style.width = (Math.random() * 15 + 5) + 'px';
+          confetti.style.height = (Math.random() * 15 + 5) + 'px';
+          confetti.style.animationDuration = (Math.random() * 3 + 2) + 's';
+          confetti.style.opacity = '0';
+          
+          // Ajouter des symboles à certains confettis
+          if (Math.random() > 0.7) {
+            confetti.innerHTML = symbols[Math.floor(Math.random() * symbols.length)];
+            confetti.style.backgroundColor = 'transparent';
+            confetti.style.fontSize = (Math.random() * 10 + 15) + 'px';
+            confetti.style.width = 'auto';
+            confetti.style.height = 'auto';
+          }
+          
+          document.body.appendChild(confetti);
+          
+          // Faire apparaître les confettis progressivement
+          setTimeout(() => {
+            confetti.style.opacity = '1';
+          }, i * 10);
+        }
+        
+        // Nettoyer les confettis après l'animation
+        setTimeout(() => {
+          const confettiElements = document.querySelectorAll('.confetti');
+          confettiElements.forEach(el => {
+            el.remove();
+          });
+        }, 5000);
+      }
+
+      // Bouton surprise
+      button.addEventListener('click', function() {
+        message.style.display = 'block';
+        button.style.display = 'none';
+        document.querySelector('.arrow-hint').style.display = 'none';
+        createConfetti();
+
+        // Ajouter des cœurs supplémentaires
+        for (let i = 0; i < 10; i++) {
+          const heart = document.createElement('div');
+          heart.className = 'heart';
+          heart.innerHTML = '❤';
+          heart.style.left = Math.random() * 100 + 'vw';
+          heart.style.animationDelay = '0s';
+          heart.style.fontSize = (Math.random() * 15 + 20) + 'px';
+          heartsContainer.appendChild(heart);
+        }
+
+        // Jouer un son de fête
+        const audio = new Audio('https://assets.mixkit.co/sfx/preview/mixkit-happy-birthday-song-438.mp3');
+        audio.play().catch(e => console.log("Audio non joué : interaction requise"));
+      });
+    });
+  </script>
+  
+
+    <!-- FOOTER -->
+  <footer class="footer">
+    <p>Avec toute mon amitié 💖 — <span class="signature">Exauce Aniti</span></p>
+  </footer>
+
+  <style>
+    .footer {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    padding: 1rem;
+    font-size: 1rem;
+    color: #fff;
+    background: rgba(214, 75, 127, 0.85); /* Rose semi-transparent */
+    background: linear-gradient(
+        90deg,
+        rgba(214, 75, 127, 0.9),
+        rgba(204, 102, 255, 0.9),
+        rgba(102, 179, 255, 0.9)
+    );
+    box-shadow: 0 -3px 10px rgba(0, 0, 0, 0.15);
+    z-index: 20;
+    }
+    .footer .signature {
+      font-weight: bold;
+      font-size: 1.2rem;
+      color: #ffe6f0;
+      text-shadow: 0 0 8px #ff66b3, 0 0 12px #cc66ff;
+      animation: glowText 2.5s ease-in-out infinite alternate;
+    }
+
+    @keyframes glowText {
+      from { text-shadow: 0 0 5px #ff99cc, 0 0 10px #cc66ff; }
+      to { text-shadow: 0 0 15px #ff66b3, 0 0 25px #cc99ff; }
+    }
+
+    /* Ajout d’éléments romantiques flottants supplémentaires */
+    .sparkles {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 0;
+    }
+    .sparkle {
+      position: absolute;
+      font-size: 18px;
+      color: #fff0fa;
+      opacity: 0;
+      animation: sparkleFloat 6s linear infinite;
+    }
+
+    @keyframes sparkleFloat {
+      0% { transform: translateY(100vh) scale(0.5); opacity: 0; }
+      20% { opacity: 1; }
+      80% { opacity: 1; }
+      100% { transform: translateY(-50px) scale(1.2); opacity: 0; }
+    }
+  </style>
+
+  <script>
+    // Ajout d'étoiles scintillantes
+    const sparklesContainer = document.createElement('div');
+    sparklesContainer.className = 'sparkles';
+    document.body.appendChild(sparklesContainer);
+
+    const sparkleSymbols = ['✨','💖','🌟','💫'];
+    for (let i = 0; i < 20; i++) {
+      const sparkle = document.createElement('div');
+      sparkle.className = 'sparkle';
+      sparkle.innerHTML = sparkleSymbols[Math.floor(Math.random() * sparkleSymbols.length)];
+      sparkle.style.left = Math.random() * 100 + 'vw';
+      sparkle.style.animationDelay = Math.random() * 6 + 's';
+      sparkle.style.fontSize = (Math.random() * 10 + 15) + 'px';
+      sparklesContainer.appendChild(sparkle);
+    }
+  </script>
+
+</body>
+</html>
